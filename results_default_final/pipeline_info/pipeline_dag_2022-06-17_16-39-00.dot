@@ -1,0 +1,1602 @@
+digraph "pipeline_dag_20220617_163900" {
+p0 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p1 [shape=point];
+p0 -> p1 [label="ch_multiqc_custom_config"];
+
+p2 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p3 [shape=point];
+p2 -> p3 [label="ch_multiqc_custom_config"];
+
+p4 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p5 [shape=point];
+p4 -> p5 [label="ch_multiqc_custom_config"];
+
+p6 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p7 [shape=point];
+p6 -> p7 [label="ch_multiqc_custom_config"];
+
+p8 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p8 -> p9 [label="samplesheet"];
+
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p9 -> p10;
+
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p9 -> p13;
+
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p10 -> p11;
+
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p11 -> p12;
+
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p15 [label="SCATACPIPE:PREPROCESS_DEFAULT:FASTQC"];
+p12 -> p15 [label="reads"];
+
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p13 -> p14;
+
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p14 -> p18 [label="sample_count"];
+
+p15 [label="SCATACPIPE:PREPROCESS_DEFAULT:FASTQC"];
+p17 [shape=point];
+p15 -> p17;
+
+p15 [label="SCATACPIPE:PREPROCESS_DEFAULT:FASTQC"];
+p68 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p15 -> p68;
+
+p15 [label="SCATACPIPE:PREPROCESS_DEFAULT:FASTQC"];
+p16 [shape=point];
+p15 -> p16 [label="sample_name"];
+
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p12 -> p18 [label="reads"];
+
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p21 [label="SCATACPIPE:PREPROCESS_DEFAULT:CUTADAPT"];
+p18 -> p21;
+
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p48 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="combine"];
+p18 -> p48 [label="left"];
+
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p41 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p18 -> p41 [label="sample_name"];
+
+p18 [label="SCATACPIPE:PREPROCESS_DEFAULT:ADD_BARCODE_TO_READS"];
+p42 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p18 -> p42;
+
+p19 [shape=point,label="",fixedsize=true,width=0.1];
+p21 [label="SCATACPIPE:PREPROCESS_DEFAULT:CUTADAPT"];
+p19 -> p21 [label="read1_adapter"];
+
+p20 [shape=point,label="",fixedsize=true,width=0.1];
+p21 [label="SCATACPIPE:PREPROCESS_DEFAULT:CUTADAPT"];
+p20 -> p21 [label="read2_adapter"];
+
+p21 [label="SCATACPIPE:PREPROCESS_DEFAULT:CUTADAPT"];
+p29 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_MAP"];
+p21 -> p29;
+
+p21 [label="SCATACPIPE:PREPROCESS_DEFAULT:CUTADAPT"];
+p80 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p21 -> p80;
+
+p22 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p24 [label="SCATACPIPE:PREPROCESS_DEFAULT:DOWNLOAD_FROM_ENSEMBL"];
+p22 -> p24;
+
+p23 [shape=point,label="",fixedsize=true,width=0.1];
+p24 [label="SCATACPIPE:PREPROCESS_DEFAULT:DOWNLOAD_FROM_ENSEMBL"];
+p23 -> p24 [label="genome_name"];
+
+p24 [label="SCATACPIPE:PREPROCESS_DEFAULT:DOWNLOAD_FROM_ENSEMBL"];
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p24 -> p26;
+
+p24 [label="SCATACPIPE:PREPROCESS_DEFAULT:DOWNLOAD_FROM_ENSEMBL"];
+p25 [shape=point];
+p24 -> p25;
+
+p24 [label="SCATACPIPE:PREPROCESS_DEFAULT:DOWNLOAD_FROM_ENSEMBL"];
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p24 -> p26 [label="genome_name"];
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p27 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_INDEX"];
+p26 -> p27 [label="prep_genome_fasta"];
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p26 -> p99 [label="prep_genome_name"];
+
+p27 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_INDEX"];
+p28 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p27 -> p28;
+
+p28 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p29 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_MAP"];
+p28 -> p29;
+
+p29 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_MAP"];
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p29 -> p31 [label="sample_name"];
+
+p29 [label="SCATACPIPE:PREPROCESS_DEFAULT:BWA_MAP"];
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p29 -> p31;
+
+p30 [shape=point,label="",fixedsize=true,width=0.1];
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p30 -> p31 [label="filter"];
+
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p54 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p31 -> p54;
+
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p32 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p31 -> p32 [label="sample_name"];
+
+p31 [label="SCATACPIPE:PREPROCESS_DEFAULT:FILTER_BAM"];
+p33 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p31 -> p33;
+
+p32 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p32 -> p34;
+
+p33 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p33 -> p34;
+
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p34 -> p36 [label="$out2"];
+
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p34 -> p36 [label="$out3"];
+
+p35 [shape=point,label="",fixedsize=true,width=0.1];
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p35 -> p36 [label="barcode_tag"];
+
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p44 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p36 -> p44;
+
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p38 [shape=point];
+p36 -> p38;
+
+p36 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM"];
+p37 [shape=point];
+p36 -> p37;
+
+p39 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p40 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p39 -> p40;
+
+p40 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p43 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_WHITELIST_BARCODE"];
+p40 -> p43 [label="path_whitelist"];
+
+p41 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p43 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_WHITELIST_BARCODE"];
+p41 -> p43;
+
+p42 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p43 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_WHITELIST_BARCODE"];
+p42 -> p43;
+
+p43 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_WHITELIST_BARCODE"];
+p44 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p43 -> p44;
+
+p44 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p46 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_VALID_BARCODE"];
+p44 -> p46;
+
+p45 [shape=point,label="",fixedsize=true,width=0.1];
+p46 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_VALID_BARCODE"];
+p45 -> p46 [label="use_whitelist"];
+
+p46 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_VALID_BARCODE"];
+p48 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="combine"];
+p46 -> p48;
+
+p46 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_VALID_BARCODE"];
+p47 [shape=point];
+p46 -> p47;
+
+p46 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_VALID_BARCODE"];
+p71 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p46 -> p71;
+
+p48 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="combine"];
+p49 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="filter"];
+p48 -> p49;
+
+p49 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="filter"];
+p50 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p49 -> p50 [label="ch_correct_barcode_input"];
+
+p50 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p53 [label="SCATACPIPE:PREPROCESS_DEFAULT:CORRECT_BARCODE_PHENIQS"];
+p50 -> p53 [label="sample_name_barcode_fastq_valid_barcode_counts_fastq"];
+
+p49 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="filter"];
+p51 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p49 -> p51 [label="ch_correct_barcode_input"];
+
+p51 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p52 [shape=point];
+p51 -> p52 [label="sample_name_barcode_fastq_valid_barcodes"];
+
+p53 [label="SCATACPIPE:PREPROCESS_DEFAULT:CORRECT_BARCODE_PHENIQS"];
+p54 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p53 -> p54;
+
+p53 [label="SCATACPIPE:PREPROCESS_DEFAULT:CORRECT_BARCODE_PHENIQS"];
+p74 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p53 -> p74;
+
+p54 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p55 [label="SCATACPIPE:PREPROCESS_DEFAULT:TAG_BAM"];
+p54 -> p55 [label="sample_name_chunk_name_tagfile_bam"];
+
+p55 [label="SCATACPIPE:PREPROCESS_DEFAULT:TAG_BAM"];
+p56 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p55 -> p56 [label="sample_name"];
+
+p55 [label="SCATACPIPE:PREPROCESS_DEFAULT:TAG_BAM"];
+p57 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p55 -> p57;
+
+p56 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p58 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM2"];
+p56 -> p58;
+
+p57 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p58 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM2"];
+p57 -> p58;
+
+p58 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM2"];
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p58 -> p60 [label="sample_name"];
+
+p58 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM2"];
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p58 -> p60;
+
+p59 [shape=point,label="",fixedsize=true,width=0.1];
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p59 -> p60 [label="barcode_tag"];
+
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p62 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_FRAGMENTS"];
+p60 -> p62;
+
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p61 [shape=point];
+p60 -> p61;
+
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p60 -> p77;
+
+p62 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_FRAGMENTS"];
+p64 [shape=point];
+p62 -> p64 [label="sample_name"];
+
+p62 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_FRAGMENTS"];
+p63 [shape=point];
+p62 -> p63 [label="$out0"];
+
+p62 [label="SCATACPIPE:PREPROCESS_DEFAULT:GET_FRAGMENTS"];
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p62 -> p115 [label="fragments"];
+
+p60 [label="SCATACPIPE:PREPROCESS_DEFAULT:DEDUP_BAM2"];
+p65 [label="SCATACPIPE:PREPROCESS_DEFAULT:QUALIMAP"];
+p60 -> p65;
+
+p65 [label="SCATACPIPE:PREPROCESS_DEFAULT:QUALIMAP"];
+p66 [shape=point];
+p65 -> p66 [label="sample_name"];
+
+p65 [label="SCATACPIPE:PREPROCESS_DEFAULT:QUALIMAP"];
+p83 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p65 -> p83;
+
+p67 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p70 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p67 -> p70 [label="res_files"];
+
+p68 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p69 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p68 -> p69;
+
+p69 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p70 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p69 -> p70;
+
+p70 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p73 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p70 -> p73 [label="res_files"];
+
+p71 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p72 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p71 -> p72;
+
+p72 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p73 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p72 -> p73;
+
+p73 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p76 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p73 -> p76 [label="res_files"];
+
+p74 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p75 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p74 -> p75;
+
+p75 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p76 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p75 -> p76;
+
+p76 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p79 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p76 -> p79 [label="res_files"];
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p78 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p77 -> p78;
+
+p78 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p79 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p78 -> p79;
+
+p79 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p82 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p79 -> p82 [label="res_files"];
+
+p80 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p81 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p80 -> p81;
+
+p81 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p82 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p81 -> p82;
+
+p82 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p85 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p82 -> p85 [label="res_files"];
+
+p83 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p84 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p83 -> p84;
+
+p84 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p85 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p84 -> p85;
+
+p85 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p324 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p85 -> p324 [label="res_files"];
+
+p86 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p87 [shape=point];
+p86 -> p87 [label="prep_genome_name"];
+
+p88 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p89 [shape=point];
+p88 -> p89 [label="prep_genome_fasta"];
+
+p90 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p91 [shape=point];
+p90 -> p91 [label="prep_gtf_genome"];
+
+p92 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p93 [shape=point];
+p92 -> p93 [label="prep_gtf_file"];
+
+p94 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p94 -> p96;
+
+p95 [shape=point,label="",fixedsize=true,width=0.1];
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p95 -> p96 [label="genome_name"];
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p96 -> p99;
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p98 [shape=point];
+p96 -> p98;
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p97 [shape=point];
+p96 -> p97 [label="genome_name"];
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p26 -> p99 [label="prep_genome_fasta"];
+
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p105 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p99 -> p105;
+
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p100 [shape=point];
+p99 -> p100 [label="genome_name"];
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p101 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p26 -> p101 [label="prep_genome_name"];
+
+p101 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p102 [shape=point];
+p101 -> p102;
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p103 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p26 -> p103 [label="prep_genome_fasta"];
+
+p103 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p104 [shape=point];
+p103 -> p104;
+
+p105 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p105 -> p115;
+
+p106 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p107 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p106 -> p107;
+
+p107 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p108 [shape=point];
+p107 -> p108 [label="user_rlib"];
+
+p26 [label="SCATACPIPE:PREPROCESS_DEFAULT:PREP_GENOME"];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p26 -> p109 [label="prep_genome_fasta"];
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p110 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p109 -> p110;
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p118 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p109 -> p118;
+
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p110 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p99 -> p110 [label="gtf"];
+
+p110 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p110 -> p112;
+
+p99 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_GTF"];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p99 -> p112 [label="gtf"];
+
+p111 [shape=point,label="",fixedsize=true,width=0.1];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p111 -> p112 [label="species_latin_name"];
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p114 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p112 -> p114;
+
+p113 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p114 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p113 -> p114;
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p114 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p109 -> p114 [label="bsgenome"];
+
+p114 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p117 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p114 -> p117;
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p115 -> p120;
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p116 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p112 -> p116;
+
+p116 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p116 -> p120;
+
+p117 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p117 -> p120;
+
+p118 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p118 -> p120;
+
+p119 [shape=point,label="",fixedsize=true,width=0.1];
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p119 -> p120 [label="archr_thread"];
+
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p120 -> p123 [label="sample_name"];
+
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p121 [shape=point];
+p120 -> p121;
+
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p120 -> p123;
+
+p120 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p234 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p120 -> p234;
+
+p122 [shape=point,label="",fixedsize=true,width=0.1];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p122 -> p123 [label="archr_thread"];
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p125 [shape=point];
+p123 -> p125 [label="sample_name"];
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p124 [shape=point];
+p123 -> p124;
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p126 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toSortedList"];
+p123 -> p126;
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p237 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p123 -> p237;
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p240 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p123 -> p240;
+
+p126 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toSortedList"];
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p126 -> p128 [label="ch_arrowfile_list"];
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p112 -> p128 [label="gene_annotation"];
+
+p114 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p114 -> p128 [label="genome_annotation"];
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p109 -> p128 [label="user_rlib"];
+
+p127 [shape=point,label="",fixedsize=true,width=0.1];
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p127 -> p128 [label="archr_thread"];
+
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p129 [shape=point];
+p128 -> p129;
+
+p128 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p131 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p128 -> p131;
+
+p130 [shape=point,label="",fixedsize=true,width=0.1];
+p131 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p130 -> p131 [label="archr_thread"];
+
+p131 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p134 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p131 -> p134 [label="archr_project"];
+
+p131 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p243 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p131 -> p243;
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p109 -> p132;
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p132 -> p153 [label="user_rlib"];
+
+p133 [shape=point,label="",fixedsize=true,width=0.1];
+p134 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p133 -> p134 [label="archr_thread"];
+
+p134 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p136 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p134 -> p136;
+
+p135 [shape=point,label="",fixedsize=true,width=0.1];
+p136 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p135 -> p136 [label="archr_thread"];
+
+p136 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p138 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p136 -> p138;
+
+p136 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p246 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p136 -> p246;
+
+p137 [shape=point,label="",fixedsize=true,width=0.1];
+p138 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p137 -> p138 [label="archr_thread"];
+
+p138 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p140 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p138 -> p140;
+
+p139 [shape=point,label="",fixedsize=true,width=0.1];
+p140 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p139 -> p140 [label="archr_thread"];
+
+p140 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p140 -> p145;
+
+p141 [shape=point,label="",fixedsize=true,width=0.1];
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p141 -> p145 [label="filter_sample"];
+
+p142 [shape=point,label="",fixedsize=true,width=0.1];
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p142 -> p145 [label="filter_seurat_iLSI"];
+
+p143 [shape=point,label="",fixedsize=true,width=0.1];
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p143 -> p145 [label="filter_seurat_harmony"];
+
+p144 [shape=point,label="",fixedsize=true,width=0.1];
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p144 -> p145 [label="archr_thread"];
+
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p147 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p145 -> p147;
+
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p146 [shape=point];
+p145 -> p146;
+
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p249 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p145 -> p249;
+
+p147 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p149 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p147 -> p149;
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p149 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p115 -> p149;
+
+p148 [shape=point,label="",fixedsize=true,width=0.1];
+p149 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p148 -> p149 [label="archr_thread"];
+
+p149 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p316 [label="SCATACPIPE:SPLIT_BED"];
+p149 -> p316 [label="$out1"];
+
+p149 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p318 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p149 -> p318 [label="$out2"];
+
+p145 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p151 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p145 -> p151 [label="archr_project"];
+
+p150 [shape=point,label="",fixedsize=true,width=0.1];
+p151 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p150 -> p151 [label="archr_thread"];
+
+p151 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p151 -> p153;
+
+p151 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p252 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p151 -> p252;
+
+p152 [shape=point,label="",fixedsize=true,width=0.1];
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p152 -> p153 [label="archr_thread"];
+
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p153 -> p170;
+
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p154 [shape=point];
+p153 -> p154;
+
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p153 -> p178 [label="user_rlib"];
+
+p155 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p155 -> p158;
+
+p151 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p151 -> p158 [label="archr_project"];
+
+p156 [shape=point,label="",fixedsize=true,width=0.1];
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p156 -> p158 [label="obj_scrnaseq"];
+
+p157 [shape=point,label="",fixedsize=true,width=0.1];
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p157 -> p158 [label="archr_thread"];
+
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p158 -> p164;
+
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p159 [shape=point];
+p158 -> p159;
+
+p158 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p261 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p158 -> p261;
+
+p160 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p160 -> p164;
+
+p161 [shape=point,label="",fixedsize=true,width=0.1];
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p161 -> p164 [label="obj_scrnaseq"];
+
+p162 [shape=point,label="",fixedsize=true,width=0.1];
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p162 -> p164 [label="group_list"];
+
+p163 [shape=point,label="",fixedsize=true,width=0.1];
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p163 -> p164 [label="archr_thread"];
+
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p164 -> p167;
+
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p264 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p164 -> p264;
+
+p164 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p165 [shape=point];
+p164 -> p165;
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p132 -> p167 [label="user_rlib"];
+
+p166 [shape=point,label="",fixedsize=true,width=0.1];
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p166 -> p167 [label="archr_thread"];
+
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p167 -> p174;
+
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p168 [shape=point];
+p167 -> p168;
+
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p167 -> p180 [label="user_rlib"];
+
+p169 [shape=point,label="",fixedsize=true,width=0.1];
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p169 -> p170 [label="archr_thread"];
+
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p172 [shape=point];
+p170 -> p172;
+
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p171 [shape=point];
+p170 -> p171;
+
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p188 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p170 -> p188;
+
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p255 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p170 -> p255;
+
+p173 [shape=point,label="",fixedsize=true,width=0.1];
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p173 -> p174 [label="archr_thread"];
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p176 [shape=point];
+p174 -> p176;
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p175 [shape=point];
+p174 -> p175;
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p190 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p174 -> p190;
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p258 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p174 -> p258;
+
+p153 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p153 -> p178 [label="archr_project"];
+
+p177 [shape=point,label="",fixedsize=true,width=0.1];
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p177 -> p178 [label="archr_thread"];
+
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p178 -> p182;
+
+p167 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p167 -> p180 [label="archr_project"];
+
+p179 [shape=point,label="",fixedsize=true,width=0.1];
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p179 -> p180 [label="archr_thread"];
+
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p180 -> p185;
+
+p181 [shape=point,label="",fixedsize=true,width=0.1];
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p181 -> p182 [label="archr_thread"];
+
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p188 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p182 -> p188 [label="archr_project"];
+
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p188 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p182 -> p188;
+
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p183 [shape=point];
+p182 -> p183;
+
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p267 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p182 -> p267;
+
+p184 [shape=point,label="",fixedsize=true,width=0.1];
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p184 -> p185 [label="archr_thread"];
+
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p190 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p185 -> p190 [label="archr_project"];
+
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p190 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p185 -> p190;
+
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p186 [shape=point];
+p185 -> p186;
+
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p270 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p185 -> p270;
+
+p187 [shape=point,label="",fixedsize=true,width=0.1];
+p188 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p187 -> p188 [label="archr_thread"];
+
+p188 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p273 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p188 -> p273;
+
+p189 [shape=point,label="",fixedsize=true,width=0.1];
+p190 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p189 -> p190 [label="archr_thread"];
+
+p190 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p276 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p190 -> p276;
+
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p192 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p178 -> p192 [label="archr_project"];
+
+p191 [shape=point,label="",fixedsize=true,width=0.1];
+p192 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p191 -> p192 [label="archr_thread"];
+
+p192 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p192 -> p198;
+
+p192 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p192 -> p198;
+
+p192 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p279 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p192 -> p279;
+
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p194 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p180 -> p194 [label="archr_project"];
+
+p193 [shape=point,label="",fixedsize=true,width=0.1];
+p194 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p193 -> p194 [label="archr_thread"];
+
+p194 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p194 -> p202;
+
+p194 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p194 -> p202;
+
+p194 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p282 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p194 -> p282;
+
+p178 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p178 -> p198 [label="archr_project"];
+
+p182 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p182 -> p198 [label="markers_peaks"];
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p132 -> p198 [label="user_rlib"];
+
+p195 [shape=point,label="",fixedsize=true,width=0.1];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p195 -> p198 [label="custom_peaks"];
+
+p196 [shape=point,label="",fixedsize=true,width=0.1];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p196 -> p198 [label="species_latin_name"];
+
+p197 [shape=point,label="",fixedsize=true,width=0.1];
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p197 -> p198 [label="archr_thread"];
+
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p198 -> p205;
+
+p198 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p285 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p198 -> p285;
+
+p180 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p180 -> p202 [label="archr_project"];
+
+p185 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p185 -> p202 [label="markers_peaks"];
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p132 -> p202 [label="user_rlib"];
+
+p199 [shape=point,label="",fixedsize=true,width=0.1];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p199 -> p202 [label="custom_peaks"];
+
+p200 [shape=point,label="",fixedsize=true,width=0.1];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p200 -> p202 [label="species_latin_name"];
+
+p201 [shape=point,label="",fixedsize=true,width=0.1];
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p201 -> p202 [label="archr_thread"];
+
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p202 -> p209;
+
+p202 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p288 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p202 -> p288;
+
+p203 [shape=point,label="",fixedsize=true,width=0.1];
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p203 -> p205 [label="custom_peaks"];
+
+p204 [shape=point,label="",fixedsize=true,width=0.1];
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p204 -> p205 [label="archr_thread"];
+
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p212 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p205 -> p212;
+
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p206 [shape=point];
+p205 -> p206;
+
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p291 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p205 -> p291;
+
+p207 [shape=point,label="",fixedsize=true,width=0.1];
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p207 -> p209 [label="custom_peaks"];
+
+p208 [shape=point,label="",fixedsize=true,width=0.1];
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p208 -> p209 [label="archr_thread"];
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p215 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p209 -> p215;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p210 [shape=point];
+p209 -> p210;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p294 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p209 -> p294;
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p212 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p132 -> p212 [label="user_rlib"];
+
+p211 [shape=point,label="",fixedsize=true,width=0.1];
+p212 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p211 -> p212 [label="archr_thread"];
+
+p212 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p213 [shape=point];
+p212 -> p213;
+
+p132 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p215 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p132 -> p215 [label="user_rlib"];
+
+p214 [shape=point,label="",fixedsize=true,width=0.1];
+p215 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p214 -> p215 [label="archr_thread"];
+
+p215 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p216 [shape=point];
+p215 -> p216;
+
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p218 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p205 -> p218 [label="archr_project"];
+
+p170 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p218 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p170 -> p218 [label="markerList"];
+
+p217 [shape=point,label="",fixedsize=true,width=0.1];
+p218 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p217 -> p218 [label="archr_thread"];
+
+p218 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p219 [shape=point];
+p218 -> p219;
+
+p218 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p297 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p218 -> p297;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p221 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p209 -> p221 [label="archr_project"];
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p221 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p174 -> p221 [label="markerList"];
+
+p220 [shape=point,label="",fixedsize=true,width=0.1];
+p221 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p220 -> p221 [label="archr_thread"];
+
+p221 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p222 [shape=point];
+p221 -> p222;
+
+p221 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p300 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p221 -> p300;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p224 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p209 -> p224 [label="archr_project"];
+
+p174 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p224 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p174 -> p224 [label="markerList"];
+
+p223 [shape=point,label="",fixedsize=true,width=0.1];
+p224 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p223 -> p224 [label="archr_thread"];
+
+p224 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p306 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p224 -> p306;
+
+p205 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p226 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p205 -> p226 [label="archr_project"];
+
+p225 [shape=point,label="",fixedsize=true,width=0.1];
+p226 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p225 -> p226 [label="archr_thread"];
+
+p226 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p309 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p226 -> p309;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p228 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p209 -> p228 [label="archr_project"];
+
+p227 [shape=point,label="",fixedsize=true,width=0.1];
+p228 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p227 -> p228 [label="archr_thread"];
+
+p228 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p312 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p228 -> p312;
+
+p229 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p231 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p229 -> p231;
+
+p209 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p231 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p209 -> p231 [label="archr_project"];
+
+p230 [shape=point,label="",fixedsize=true,width=0.1];
+p231 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p230 -> p231 [label="archr_thread"];
+
+p231 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p232 [shape=point];
+p231 -> p232;
+
+p231 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p303 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p231 -> p303;
+
+p233 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p236 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p233 -> p236 [label="res_files"];
+
+p234 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p235 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p234 -> p235;
+
+p235 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p236 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p235 -> p236;
+
+p236 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p239 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p236 -> p239 [label="res_files"];
+
+p237 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p238 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p237 -> p238;
+
+p238 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p239 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p238 -> p239;
+
+p239 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p242 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p239 -> p242 [label="res_files"];
+
+p240 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p241 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p240 -> p241;
+
+p241 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p242 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p241 -> p242;
+
+p242 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p245 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p242 -> p245 [label="res_files"];
+
+p243 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p244 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p243 -> p244;
+
+p244 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p245 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p244 -> p245;
+
+p245 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p248 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p245 -> p248 [label="res_files"];
+
+p246 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p247 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p246 -> p247;
+
+p247 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p248 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p247 -> p248;
+
+p248 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p251 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p248 -> p251 [label="res_files"];
+
+p249 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p250 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p249 -> p250;
+
+p250 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p251 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p250 -> p251;
+
+p251 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p254 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p251 -> p254 [label="res_files"];
+
+p252 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p253 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p252 -> p253;
+
+p253 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p254 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p253 -> p254;
+
+p254 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p257 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p254 -> p257 [label="res_files"];
+
+p255 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p256 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p255 -> p256;
+
+p256 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p257 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p256 -> p257;
+
+p257 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p260 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p257 -> p260 [label="res_files"];
+
+p258 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p259 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p258 -> p259;
+
+p259 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p260 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p259 -> p260;
+
+p260 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p263 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p260 -> p263 [label="res_files"];
+
+p261 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p262 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p261 -> p262;
+
+p262 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p263 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p262 -> p263;
+
+p263 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p266 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p263 -> p266 [label="res_files"];
+
+p264 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p265 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p264 -> p265;
+
+p265 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p266 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p265 -> p266;
+
+p266 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p269 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p266 -> p269 [label="res_files"];
+
+p267 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p268 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p267 -> p268;
+
+p268 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p269 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p268 -> p269;
+
+p269 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p272 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p269 -> p272 [label="res_files"];
+
+p270 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p271 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p270 -> p271;
+
+p271 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p272 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p271 -> p272;
+
+p272 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p275 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p272 -> p275 [label="res_files"];
+
+p273 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p274 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p273 -> p274;
+
+p274 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p275 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p274 -> p275;
+
+p275 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p278 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p275 -> p278 [label="res_files"];
+
+p276 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p277 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p276 -> p277;
+
+p277 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p278 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p277 -> p278;
+
+p278 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p281 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p278 -> p281 [label="res_files"];
+
+p279 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p280 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p279 -> p280;
+
+p280 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p281 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p280 -> p281;
+
+p281 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p284 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p281 -> p284 [label="res_files"];
+
+p282 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p283 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p282 -> p283;
+
+p283 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p284 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p283 -> p284;
+
+p284 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p287 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p284 -> p287 [label="res_files"];
+
+p285 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p286 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p285 -> p286;
+
+p286 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p287 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p286 -> p287;
+
+p287 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p290 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p287 -> p290 [label="res_files"];
+
+p288 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p289 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p288 -> p289;
+
+p289 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p290 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p289 -> p290;
+
+p290 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p293 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p290 -> p293 [label="res_files"];
+
+p291 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p292 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p291 -> p292;
+
+p292 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p293 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p292 -> p293;
+
+p293 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p296 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p293 -> p296 [label="res_files"];
+
+p294 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p295 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p294 -> p295;
+
+p295 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p296 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p295 -> p296;
+
+p296 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p299 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p296 -> p299 [label="res_files"];
+
+p297 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p298 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p297 -> p298;
+
+p298 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p299 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p298 -> p299;
+
+p299 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p302 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p299 -> p302 [label="res_files"];
+
+p300 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p301 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p300 -> p301;
+
+p301 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p302 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p301 -> p302;
+
+p302 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p305 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p302 -> p305 [label="res_files"];
+
+p303 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p304 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p303 -> p304;
+
+p304 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p305 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p304 -> p305;
+
+p305 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p308 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p305 -> p308 [label="res_files"];
+
+p306 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p307 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p306 -> p307;
+
+p307 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p308 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p307 -> p308;
+
+p308 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p311 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p308 -> p311 [label="res_files"];
+
+p309 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p310 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p309 -> p310;
+
+p310 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p311 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p310 -> p311;
+
+p311 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p314 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p311 -> p314 [label="res_files"];
+
+p312 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p313 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p312 -> p313;
+
+p313 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p314 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p313 -> p314;
+
+p314 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p315 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p314 -> p315 [label="res_files"];
+
+p315 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p323 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p315 -> p323 [label="$out0"];
+
+p316 [label="SCATACPIPE:SPLIT_BED"];
+p317 [shape=point];
+p316 -> p317;
+
+p318 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p320 [label="SCATACPIPE:SPLIT_BAM"];
+p318 -> p320;
+
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p319 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p34 -> p319 [label="$out3"];
+
+p319 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p320 [label="SCATACPIPE:SPLIT_BAM"];
+p319 -> p320;
+
+p34 [label="SCATACPIPE:PREPROCESS_DEFAULT:COMBINE_BAM"];
+p320 [label="SCATACPIPE:SPLIT_BAM"];
+p34 -> p320 [label="$out2"];
+
+p320 [label="SCATACPIPE:SPLIT_BAM"];
+p322 [shape=point];
+p320 -> p322;
+
+p320 [label="SCATACPIPE:SPLIT_BAM"];
+p321 [shape=point];
+p320 -> p321;
+
+p323 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p324 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p323 -> p324;
+
+p324 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p326 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p324 -> p326;
+
+p325 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p326 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p325 -> p326;
+
+p326 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p327 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p326 -> p327;
+
+p327 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p328 [label="SCATACPIPE:MULTIQC"];
+p327 -> p328;
+
+p328 [label="SCATACPIPE:MULTIQC"];
+p330 [shape=point];
+p328 -> p330;
+
+p328 [label="SCATACPIPE:MULTIQC"];
+p329 [shape=point];
+p328 -> p329 [label="res_files"];
+
+}
