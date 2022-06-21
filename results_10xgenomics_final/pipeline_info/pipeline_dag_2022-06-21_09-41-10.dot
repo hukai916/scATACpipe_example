@@ -1,0 +1,1326 @@
+digraph "pipeline_dag_20220621_094110" {
+p0 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p1 [shape=point];
+p0 -> p1 [label="ch_multiqc_custom_config"];
+
+p2 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p3 [shape=point];
+p2 -> p3 [label="ch_multiqc_custom_config"];
+
+p4 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p5 [shape=point];
+p4 -> p5 [label="ch_multiqc_custom_config"];
+
+p6 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p7 [shape=point];
+p6 -> p7 [label="ch_multiqc_custom_config"];
+
+p8 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p8 -> p9 [label="samplesheet"];
+
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p9 -> p10;
+
+p9 [label="SCATACPIPE:INPUT_CHECK_FASTQ:SAMPLESHEET_CHECK_FASTQ"];
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p9 -> p13;
+
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p10 -> p11;
+
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p11 -> p12;
+
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p15 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:MATCH_SAMPLE_NAME"];
+p12 -> p15 [label="reads"];
+
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="splitCsv"];
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p13 -> p14;
+
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p15 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:MATCH_SAMPLE_NAME"];
+p14 -> p15 [label="sample_count"];
+
+p15 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:MATCH_SAMPLE_NAME"];
+p29 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p15 -> p29 [label="sample_name"];
+
+p15 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:MATCH_SAMPLE_NAME"];
+p30 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p15 -> p30;
+
+p16 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p18 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL"];
+p16 -> p18;
+
+p17 [shape=point,label="",fixedsize=true,width=0.1];
+p18 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL"];
+p17 -> p18 [label="genome_name"];
+
+p18 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL"];
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p18 -> p20;
+
+p18 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL"];
+p19 [shape=point];
+p18 -> p19;
+
+p18 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL"];
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p18 -> p20 [label="genome_name"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p20 -> p26 [label="prep_genome_fasta"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p20 -> p26 [label="prep_genome_name"];
+
+p21 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p23 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p21 -> p23;
+
+p22 [shape=point,label="",fixedsize=true,width=0.1];
+p23 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p22 -> p23 [label="genome_name"];
+
+p23 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p23 -> p26;
+
+p23 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p25 [shape=point];
+p23 -> p25;
+
+p23 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:DOWNLOAD_FROM_ENSEMBL_GTF"];
+p24 [shape=point];
+p23 -> p24 [label="genome_name"];
+
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p28 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_INDEX"];
+p26 -> p28 [label="prep_gtf_file"];
+
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p27 [shape=point];
+p26 -> p27 [label="prep_gtf_genome"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p28 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_INDEX"];
+p20 -> p28 [label="prep_genome_fasta"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p28 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_INDEX"];
+p20 -> p28 [label="prep_genome_name"];
+
+p28 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_INDEX"];
+p31 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p28 -> p31;
+
+p29 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="unique"];
+p32 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_ATAC_COUNT"];
+p29 -> p32;
+
+p30 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p32 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_ATAC_COUNT"];
+p30 -> p32;
+
+p31 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p32 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_ATAC_COUNT"];
+p31 -> p32;
+
+p32 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:CELLRANGER_ATAC_COUNT"];
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p32 -> p34;
+
+p33 [shape=point,label="",fixedsize=true,width=0.1];
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p33 -> p34 [label="barcode_tag"];
+
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p265 [label="SCATACPIPE:SPLIT_BAM"];
+p34 -> p265 [label="$out2"];
+
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p35 [shape=point];
+p34 -> p35 [label="$out0"];
+
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p60 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p34 -> p60 [label="fragments"];
+
+p34 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:FILTER_CELL"];
+p264 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p34 -> p264 [label="$out3"];
+
+p36 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p37 [shape=point];
+p36 -> p37 [label="prep_genome_name"];
+
+p38 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p39 [shape=point];
+p38 -> p39 [label="prep_genome_fasta"];
+
+p40 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p41 [shape=point];
+p40 -> p41 [label="prep_gtf_genome"];
+
+p42 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p43 [shape=point];
+p42 -> p43 [label="prep_gtf_file"];
+
+p44 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p45 [shape=point];
+p44 -> p45 [label="res_files"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p46 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p20 -> p46 [label="prep_genome_name"];
+
+p46 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p47 [shape=point];
+p46 -> p47;
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p48 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p20 -> p48 [label="prep_genome_fasta"];
+
+p48 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p49 [shape=point];
+p48 -> p49;
+
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p50 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p26 -> p50 [label="prep_gtf_file"];
+
+p50 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p60 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p50 -> p60;
+
+p51 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p52 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p51 -> p52;
+
+p52 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="first"];
+p53 [shape=point];
+p52 -> p53 [label="user_rlib"];
+
+p20 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GENOME"];
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p20 -> p54 [label="prep_genome_fasta"];
+
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p55 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p54 -> p55;
+
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p63 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p54 -> p63;
+
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p55 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p26 -> p55 [label="prep_gtf_file"];
+
+p55 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_TXDB"];
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p55 -> p57;
+
+p26 [label="SCATACPIPE:PREPROCESS_10XGENOMICS:PREP_GTF"];
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p26 -> p57 [label="prep_gtf_file"];
+
+p56 [shape=point,label="",fixedsize=true,width=0.1];
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p56 -> p57 [label="species_latin_name"];
+
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p59 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p57 -> p59;
+
+p58 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p59 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p58 -> p59;
+
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p59 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p54 -> p59 [label="bsgenome"];
+
+p59 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p62 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p59 -> p62;
+
+p60 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p60 -> p65;
+
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p61 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p57 -> p61;
+
+p61 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p61 -> p65;
+
+p62 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p62 -> p65;
+
+p63 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p63 -> p65;
+
+p64 [shape=point,label="",fixedsize=true,width=0.1];
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p64 -> p65 [label="archr_thread"];
+
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p65 -> p68 [label="sample_name"];
+
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p66 [shape=point];
+p65 -> p66;
+
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p65 -> p68;
+
+p65 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CREATE_ARROWFILES_ANNOTATION"];
+p179 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p65 -> p179;
+
+p67 [shape=point,label="",fixedsize=true,width=0.1];
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p67 -> p68 [label="archr_thread"];
+
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p70 [shape=point];
+p68 -> p70 [label="sample_name"];
+
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p69 [shape=point];
+p68 -> p69;
+
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p71 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toSortedList"];
+p68 -> p71;
+
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p182 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p68 -> p182;
+
+p68 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ADD_DOUBLETSCORES"];
+p185 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p68 -> p185;
+
+p71 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toSortedList"];
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p71 -> p73 [label="ch_arrowfile_list"];
+
+p57 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENE_ANNOTATION"];
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p57 -> p73 [label="gene_annotation"];
+
+p59 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_GENOME_ANNOTATION"];
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p59 -> p73 [label="genome_annotation"];
+
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p54 -> p73 [label="user_rlib"];
+
+p72 [shape=point,label="",fixedsize=true,width=0.1];
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p72 -> p73 [label="archr_thread"];
+
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p74 [shape=point];
+p73 -> p74;
+
+p73 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_ANNOTATION"];
+p76 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p73 -> p76;
+
+p75 [shape=point,label="",fixedsize=true,width=0.1];
+p76 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p75 -> p76 [label="archr_thread"];
+
+p76 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p79 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p76 -> p79 [label="archr_project"];
+
+p76 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_ARCHRPROJECT_QC"];
+p188 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p76 -> p188;
+
+p54 [label="SCATACPIPE:DOWNSTREAM_ARCHR:BUILD_BSGENOME"];
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p54 -> p77;
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p77 -> p98 [label="user_rlib"];
+
+p78 [shape=point,label="",fixedsize=true,width=0.1];
+p79 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p78 -> p79 [label="archr_thread"];
+
+p79 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_CELLS"];
+p81 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p79 -> p81;
+
+p80 [shape=point,label="",fixedsize=true,width=0.1];
+p81 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p80 -> p81 [label="archr_thread"];
+
+p81 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p83 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p81 -> p83;
+
+p81 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FILTER_DOUBLETS"];
+p191 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p81 -> p191;
+
+p82 [shape=point,label="",fixedsize=true,width=0.1];
+p83 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p82 -> p83 [label="archr_thread"];
+
+p83 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_DIMENSION_REDUCTION"];
+p85 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p83 -> p85;
+
+p84 [shape=point,label="",fixedsize=true,width=0.1];
+p85 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p84 -> p85 [label="archr_thread"];
+
+p85 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_BATCH_CORRECTION"];
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p85 -> p90;
+
+p86 [shape=point,label="",fixedsize=true,width=0.1];
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p86 -> p90 [label="filter_sample"];
+
+p87 [shape=point,label="",fixedsize=true,width=0.1];
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p87 -> p90 [label="filter_seurat_iLSI"];
+
+p88 [shape=point,label="",fixedsize=true,width=0.1];
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p88 -> p90 [label="filter_seurat_harmony"];
+
+p89 [shape=point,label="",fixedsize=true,width=0.1];
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p89 -> p90 [label="archr_thread"];
+
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p92 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p90 -> p92;
+
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p91 [shape=point];
+p90 -> p91;
+
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p194 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p90 -> p194;
+
+p92 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p94 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p92 -> p94;
+
+p60 [label="SCATACPIPE:DOWNSTREAM_ARCHR:PREP_FRAGMENT"];
+p94 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p60 -> p94;
+
+p93 [shape=point,label="",fixedsize=true,width=0.1];
+p94 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p93 -> p94 [label="archr_thread"];
+
+p94 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p261 [label="SCATACPIPE:SPLIT_BED"];
+p94 -> p261 [label="$out1"];
+
+p94 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_CLUSTERING_TSV"];
+p263 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p94 -> p263 [label="$out2"];
+
+p90 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CLUSTERING"];
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p90 -> p96 [label="archr_project"];
+
+p95 [shape=point,label="",fixedsize=true,width=0.1];
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p95 -> p96 [label="archr_thread"];
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p96 -> p98;
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p197 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p96 -> p197;
+
+p97 [shape=point,label="",fixedsize=true,width=0.1];
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p97 -> p98 [label="archr_thread"];
+
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p98 -> p115;
+
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p99 [shape=point];
+p98 -> p99;
+
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p98 -> p123 [label="user_rlib"];
+
+p100 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p100 -> p103;
+
+p96 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_EMBEDDING"];
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p96 -> p103 [label="archr_project"];
+
+p101 [shape=point,label="",fixedsize=true,width=0.1];
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p101 -> p103 [label="obj_scrnaseq"];
+
+p102 [shape=point,label="",fixedsize=true,width=0.1];
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p102 -> p103 [label="archr_thread"];
+
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p103 -> p109;
+
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p104 [shape=point];
+p103 -> p104;
+
+p103 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_UNCONSTRAINED"];
+p206 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p103 -> p206;
+
+p105 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p105 -> p109;
+
+p106 [shape=point,label="",fixedsize=true,width=0.1];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p106 -> p109 [label="obj_scrnaseq"];
+
+p107 [shape=point,label="",fixedsize=true,width=0.1];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p107 -> p109 [label="group_list"];
+
+p108 [shape=point,label="",fixedsize=true,width=0.1];
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p108 -> p109 [label="archr_thread"];
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p109 -> p112;
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p209 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p109 -> p209;
+
+p109 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_SCRNASEQ_CONSTRAINED"];
+p110 [shape=point];
+p109 -> p110;
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p77 -> p112 [label="user_rlib"];
+
+p111 [shape=point,label="",fixedsize=true,width=0.1];
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p111 -> p112 [label="archr_thread"];
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p112 -> p119;
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p113 [shape=point];
+p112 -> p113;
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p112 -> p125 [label="user_rlib"];
+
+p114 [shape=point,label="",fixedsize=true,width=0.1];
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p114 -> p115 [label="archr_thread"];
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p117 [shape=point];
+p115 -> p117;
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p116 [shape=point];
+p115 -> p116;
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p133 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p115 -> p133;
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p200 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p115 -> p200;
+
+p118 [shape=point,label="",fixedsize=true,width=0.1];
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p118 -> p119 [label="archr_thread"];
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p121 [shape=point];
+p119 -> p121;
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p120 [shape=point];
+p119 -> p120;
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p135 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p119 -> p135;
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p203 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p119 -> p203;
+
+p98 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS"];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p98 -> p123 [label="archr_project"];
+
+p122 [shape=point,label="",fixedsize=true,width=0.1];
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p122 -> p123 [label="archr_thread"];
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p123 -> p127;
+
+p112 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PSEUDO_BULK_CLUSTERS2"];
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p112 -> p125 [label="archr_project"];
+
+p124 [shape=point,label="",fixedsize=true,width=0.1];
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p124 -> p125 [label="archr_thread"];
+
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p125 -> p130;
+
+p126 [shape=point,label="",fixedsize=true,width=0.1];
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p126 -> p127 [label="archr_thread"];
+
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p133 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p127 -> p133 [label="archr_project"];
+
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p133 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p127 -> p133;
+
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p128 [shape=point];
+p127 -> p128;
+
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p212 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p127 -> p212;
+
+p129 [shape=point,label="",fixedsize=true,width=0.1];
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p129 -> p130 [label="archr_thread"];
+
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p135 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p130 -> p135 [label="archr_project"];
+
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p135 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p130 -> p135;
+
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p131 [shape=point];
+p130 -> p131;
+
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p215 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p130 -> p215;
+
+p132 [shape=point,label="",fixedsize=true,width=0.1];
+p133 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p132 -> p133 [label="archr_thread"];
+
+p133 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS"];
+p218 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p133 -> p218;
+
+p134 [shape=point,label="",fixedsize=true,width=0.1];
+p135 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p134 -> p135 [label="archr_thread"];
+
+p135 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_PEAKS_IN_TRACKS_CLUSTERS2"];
+p221 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p135 -> p221;
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p137 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p123 -> p137 [label="archr_project"];
+
+p136 [shape=point,label="",fixedsize=true,width=0.1];
+p137 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p136 -> p137 [label="archr_thread"];
+
+p137 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p137 -> p143;
+
+p137 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p137 -> p143;
+
+p137 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS"];
+p224 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p137 -> p224;
+
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p139 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p125 -> p139 [label="archr_project"];
+
+p138 [shape=point,label="",fixedsize=true,width=0.1];
+p139 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p138 -> p139 [label="archr_thread"];
+
+p139 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p139 -> p147;
+
+p139 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p139 -> p147;
+
+p139 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PAIRWISE_TEST_CLUSTERS2"];
+p227 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p139 -> p227;
+
+p123 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS"];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p123 -> p143 [label="archr_project"];
+
+p127 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS"];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p127 -> p143 [label="markers_peaks"];
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p77 -> p143 [label="user_rlib"];
+
+p140 [shape=point,label="",fixedsize=true,width=0.1];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p140 -> p143 [label="custom_peaks"];
+
+p141 [shape=point,label="",fixedsize=true,width=0.1];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p141 -> p143 [label="species_latin_name"];
+
+p142 [shape=point,label="",fixedsize=true,width=0.1];
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p142 -> p143 [label="archr_thread"];
+
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p143 -> p150;
+
+p143 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS"];
+p230 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p143 -> p230;
+
+p125 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_CALL_PEAKS_CLUSTERS2"];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p125 -> p147 [label="archr_project"];
+
+p130 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_MARKER_PEAKS_CLUSTERS2"];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p130 -> p147 [label="markers_peaks"];
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p77 -> p147 [label="user_rlib"];
+
+p144 [shape=point,label="",fixedsize=true,width=0.1];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p144 -> p147 [label="custom_peaks"];
+
+p145 [shape=point,label="",fixedsize=true,width=0.1];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p145 -> p147 [label="species_latin_name"];
+
+p146 [shape=point,label="",fixedsize=true,width=0.1];
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p146 -> p147 [label="archr_thread"];
+
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p147 -> p154;
+
+p147 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_ENRICHMENT_CLUSTERS2"];
+p233 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p147 -> p233;
+
+p148 [shape=point,label="",fixedsize=true,width=0.1];
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p148 -> p150 [label="custom_peaks"];
+
+p149 [shape=point,label="",fixedsize=true,width=0.1];
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p149 -> p150 [label="archr_thread"];
+
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p157 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p150 -> p157;
+
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p151 [shape=point];
+p150 -> p151;
+
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p236 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p150 -> p236;
+
+p152 [shape=point,label="",fixedsize=true,width=0.1];
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p152 -> p154 [label="custom_peaks"];
+
+p153 [shape=point,label="",fixedsize=true,width=0.1];
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p153 -> p154 [label="archr_thread"];
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p160 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p154 -> p160;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p155 [shape=point];
+p154 -> p155;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p239 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p154 -> p239;
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p157 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p77 -> p157 [label="user_rlib"];
+
+p156 [shape=point,label="",fixedsize=true,width=0.1];
+p157 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p156 -> p157 [label="archr_thread"];
+
+p157 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS"];
+p158 [shape=point];
+p157 -> p158;
+
+p77 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p160 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p77 -> p160 [label="user_rlib"];
+
+p159 [shape=point,label="",fixedsize=true,width=0.1];
+p160 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p159 -> p160 [label="archr_thread"];
+
+p160 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_FOOTPRINTING_CLUSTERS2"];
+p161 [shape=point];
+p160 -> p161;
+
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p163 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p150 -> p163 [label="archr_project"];
+
+p115 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS"];
+p163 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p115 -> p163 [label="markerList"];
+
+p162 [shape=point,label="",fixedsize=true,width=0.1];
+p163 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p162 -> p163 [label="archr_thread"];
+
+p163 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p164 [shape=point];
+p163 -> p164;
+
+p163 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS"];
+p242 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p163 -> p242;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p166 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p154 -> p166 [label="archr_project"];
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p166 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p119 -> p166 [label="markerList"];
+
+p165 [shape=point,label="",fixedsize=true,width=0.1];
+p166 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p165 -> p166 [label="archr_thread"];
+
+p166 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p167 [shape=point];
+p166 -> p167;
+
+p166 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_COACCESSIBILITY_CLUSTERS2"];
+p245 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p166 -> p245;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p169 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p154 -> p169 [label="archr_project"];
+
+p119 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MARKER_GENE_CLUSTERS2"];
+p169 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p119 -> p169 [label="markerList"];
+
+p168 [shape=point,label="",fixedsize=true,width=0.1];
+p169 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p168 -> p169 [label="archr_thread"];
+
+p169 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_PEAK2GENELINKAGE_CLUSTERS2"];
+p251 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p169 -> p251;
+
+p150 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS"];
+p171 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p150 -> p171 [label="archr_project"];
+
+p170 [shape=point,label="",fixedsize=true,width=0.1];
+p171 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p170 -> p171 [label="archr_thread"];
+
+p171 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS"];
+p254 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p171 -> p254;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p173 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p154 -> p173 [label="archr_project"];
+
+p172 [shape=point,label="",fixedsize=true,width=0.1];
+p173 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p172 -> p173 [label="archr_thread"];
+
+p173 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_GET_POSITIVE_TF_REGULATOR_CLUSTERS2"];
+p257 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p173 -> p257;
+
+p174 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromPath"];
+p176 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p174 -> p176;
+
+p154 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_MOTIF_DEVIATIONS_CLUSTERS2"];
+p176 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p154 -> p176 [label="archr_project"];
+
+p175 [shape=point,label="",fixedsize=true,width=0.1];
+p176 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p175 -> p176 [label="archr_thread"];
+
+p176 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p177 [shape=point];
+p176 -> p177;
+
+p176 [label="SCATACPIPE:DOWNSTREAM_ARCHR:ARCHR_TRAJECTORY_CLUSTERS2"];
+p248 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p176 -> p248;
+
+p178 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.empty"];
+p181 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p178 -> p181 [label="res_files"];
+
+p179 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p180 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p179 -> p180;
+
+p180 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p181 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p180 -> p181;
+
+p181 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p184 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p181 -> p184 [label="res_files"];
+
+p182 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p183 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p182 -> p183;
+
+p183 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p184 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p183 -> p184;
+
+p184 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p187 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p184 -> p187 [label="res_files"];
+
+p185 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p186 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p185 -> p186;
+
+p186 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p187 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p186 -> p187;
+
+p187 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p190 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p187 -> p190 [label="res_files"];
+
+p188 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p189 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p188 -> p189;
+
+p189 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p190 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p189 -> p190;
+
+p190 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p193 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p190 -> p193 [label="res_files"];
+
+p191 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p192 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p191 -> p192;
+
+p192 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p193 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p192 -> p193;
+
+p193 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p196 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p193 -> p196 [label="res_files"];
+
+p194 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p195 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p194 -> p195;
+
+p195 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p196 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p195 -> p196;
+
+p196 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p199 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p196 -> p199 [label="res_files"];
+
+p197 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p198 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p197 -> p198;
+
+p198 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p199 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p198 -> p199;
+
+p199 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p202 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p199 -> p202 [label="res_files"];
+
+p200 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p201 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p200 -> p201;
+
+p201 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p202 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p201 -> p202;
+
+p202 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p205 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p202 -> p205 [label="res_files"];
+
+p203 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p204 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p203 -> p204;
+
+p204 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p205 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p204 -> p205;
+
+p205 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p208 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p205 -> p208 [label="res_files"];
+
+p206 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p207 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p206 -> p207;
+
+p207 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p208 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p207 -> p208;
+
+p208 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p211 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p208 -> p211 [label="res_files"];
+
+p209 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p210 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p209 -> p210;
+
+p210 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p211 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p210 -> p211;
+
+p211 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p214 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p211 -> p214 [label="res_files"];
+
+p212 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p213 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p212 -> p213;
+
+p213 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p214 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p213 -> p214;
+
+p214 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p217 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p214 -> p217 [label="res_files"];
+
+p215 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p216 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p215 -> p216;
+
+p216 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p217 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p216 -> p217;
+
+p217 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p220 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p217 -> p220 [label="res_files"];
+
+p218 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p219 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p218 -> p219;
+
+p219 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p220 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p219 -> p220;
+
+p220 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p223 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p220 -> p223 [label="res_files"];
+
+p221 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p222 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p221 -> p222;
+
+p222 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p223 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p222 -> p223;
+
+p223 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p226 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p223 -> p226 [label="res_files"];
+
+p224 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p225 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p224 -> p225;
+
+p225 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p226 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p225 -> p226;
+
+p226 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p229 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p226 -> p229 [label="res_files"];
+
+p227 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p228 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p227 -> p228;
+
+p228 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p229 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p228 -> p229;
+
+p229 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p232 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p229 -> p232 [label="res_files"];
+
+p230 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p231 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p230 -> p231;
+
+p231 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p232 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p231 -> p232;
+
+p232 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p235 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p232 -> p235 [label="res_files"];
+
+p233 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p234 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p233 -> p234;
+
+p234 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p235 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p234 -> p235;
+
+p235 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p238 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p235 -> p238 [label="res_files"];
+
+p236 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p237 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p236 -> p237;
+
+p237 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p238 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p237 -> p238;
+
+p238 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p241 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p238 -> p241 [label="res_files"];
+
+p239 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p240 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p239 -> p240;
+
+p240 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p241 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p240 -> p241;
+
+p241 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p244 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p241 -> p244 [label="res_files"];
+
+p242 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p243 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p242 -> p243;
+
+p243 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p244 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p243 -> p244;
+
+p244 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p247 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p244 -> p247 [label="res_files"];
+
+p245 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p246 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p245 -> p246;
+
+p246 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p247 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p246 -> p247;
+
+p247 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p250 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p247 -> p250 [label="res_files"];
+
+p248 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p249 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p248 -> p249;
+
+p249 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p250 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p249 -> p250;
+
+p250 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p253 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p250 -> p253 [label="res_files"];
+
+p251 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p252 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p251 -> p252;
+
+p252 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p253 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p252 -> p253;
+
+p253 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p256 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p253 -> p256 [label="res_files"];
+
+p254 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p255 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p254 -> p255;
+
+p255 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p256 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p255 -> p256;
+
+p256 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p259 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p256 -> p259 [label="res_files"];
+
+p257 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p258 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p257 -> p258;
+
+p258 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p259 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p258 -> p259;
+
+p259 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p260 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p259 -> p260 [label="res_files"];
+
+p260 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p268 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p260 -> p268 [label="$out0"];
+
+p261 [label="SCATACPIPE:SPLIT_BED"];
+p262 [shape=point];
+p261 -> p262;
+
+p263 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p265 [label="SCATACPIPE:SPLIT_BAM"];
+p263 -> p265;
+
+p264 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p265 [label="SCATACPIPE:SPLIT_BAM"];
+p264 -> p265;
+
+p265 [label="SCATACPIPE:SPLIT_BAM"];
+p267 [shape=point];
+p265 -> p267;
+
+p265 [label="SCATACPIPE:SPLIT_BAM"];
+p266 [shape=point];
+p265 -> p266;
+
+p268 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="ifEmpty"];
+p270 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p268 -> p270;
+
+p269 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p270 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p269 -> p270;
+
+p270 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p271 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p270 -> p271;
+
+p271 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p272 [label="SCATACPIPE:MULTIQC"];
+p271 -> p272;
+
+p272 [label="SCATACPIPE:MULTIQC"];
+p274 [shape=point];
+p272 -> p274;
+
+p272 [label="SCATACPIPE:MULTIQC"];
+p273 [shape=point];
+p272 -> p273 [label="res_files"];
+
+}
