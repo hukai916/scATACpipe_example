@@ -100,15 +100,21 @@ The following object is masked from ‘package:S4Vectors’:
 
 Loading required package: rhdf5
 Loading required package: magrittr
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    subtract
+
 Loading required package: parallel
-Setting default number of Parallel threads to 4.
-ArchR logging to : ArchRLogs/ArchR-addDoubletScores-101f61575f6102-Date-2022-02-17_Time-23-51-15.log
+Setting default number of Parallel threads to 8.
+ArchR logging to : ArchRLogs/ArchR-addDoubletScores-a6c6a2c0f14-Date-2022-06-24_Time-21-03-06.log
 If there is an issue, please report to github with logFile!
-2022-02-17 23:51:15 : Batch Execution w/ safelapply!, 0 mins elapsed.
-2022-02-17 23:51:15 : pbmc_500_10p (1 of 1) :  Computing Doublet Statistics, 0 mins elapsed.
-Filtering 1 dims correlated > 0.75 to log10(depth + 1)
-pbmc_500_10p (1 of 1) : UMAP Projection R^2 = 0.98678
-ArchR logging successful to : ArchRLogs/ArchR-addDoubletScores-101f61575f6102-Date-2022-02-17_Time-23-51-15.log
+2022-06-24 21:03:07 : Batch Execution w/ safelapply!, 0 mins elapsed.
+2022-06-24 21:03:07 : pbmc_500_10p (1 of 1) :  Computing Doublet Statistics, 0 mins elapsed.
+pbmc_500_10p (1 of 1) : UMAP Projection R^2 = 0.98673
+ArchR logging successful to : ArchRLogs/ArchR-addDoubletScores-a6c6a2c0f14-Date-2022-06-24_Time-21-03-06.log
 [[1]]
 List of length 2
 names(2): doubletScore doubletEnrich

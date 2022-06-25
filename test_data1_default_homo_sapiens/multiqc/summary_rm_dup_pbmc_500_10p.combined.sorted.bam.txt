@@ -1,0 +1,1 @@
+Summary (remove_duplicate.py): total unique fragments: 2067971, total duplicate fragments: 491652, other fragments(unproper mapped or with no corrected barcodes): 0.

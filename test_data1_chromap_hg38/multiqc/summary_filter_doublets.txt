@@ -100,8 +100,15 @@ The following object is masked from ‘package:S4Vectors’:
 
 Loading required package: rhdf5
 Loading required package: magrittr
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    subtract
+
 Loading required package: parallel
-Setting default number of Parallel threads to 4.
-Filtering 1 cells from ArchRProject!
-	pbmc_500_10p : 1 of 300 (0.3%)
+Setting default number of Parallel threads to 8.
+Filtering 0 cells from ArchRProject!
+	pbmc_500_10p : 0 of 300 (0%)
 	pbmc_500_5p : 0 of 101 (0%)

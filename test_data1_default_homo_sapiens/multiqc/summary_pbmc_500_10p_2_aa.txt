@@ -1,1 +1,0 @@
-Summary (correct_barcode): total valid: 0; total corrected: 1392831; total discarded: 0.

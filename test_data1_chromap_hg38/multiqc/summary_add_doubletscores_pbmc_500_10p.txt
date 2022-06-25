@@ -100,17 +100,24 @@ The following object is masked from ‘package:S4Vectors’:
 
 Loading required package: rhdf5
 Loading required package: magrittr
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    subtract
+
 Loading required package: parallel
-Setting default number of Parallel threads to 4.
-ArchR logging to : ArchRLogs/ArchR-addDoubletScores-30a26a12d0a20c-Date-2022-02-19_Time-16-29-29.log
+Setting default number of Parallel threads to 8.
+ArchR logging to : ArchRLogs/ArchR-addDoubletScores-3edaac4f162b22-Date-2022-06-24_Time-21-06-01.log
 If there is an issue, please report to github with logFile!
-2022-02-19 16:29:29 : Batch Execution w/ safelapply!, 0 mins elapsed.
-2022-02-19 16:29:29 : pbmc_500_10p (1 of 1) :  Computing Doublet Statistics, 0 mins elapsed.
-pbmc_500_10p (1 of 1) : UMAP Projection R^2 = 0.98819
-ArchR logging successful to : ArchRLogs/ArchR-addDoubletScores-30a26a12d0a20c-Date-2022-02-19_Time-16-29-29.log
+2022-06-24 21:06:01 : Batch Execution w/ safelapply!, 0 mins elapsed.
+2022-06-24 21:06:01 : pbmc_500_10p (1 of 1) :  Computing Doublet Statistics, 0.001 mins elapsed.
+pbmc_500_10p (1 of 1) : UMAP Projection R^2 = 0.99625
+ArchR logging successful to : ArchRLogs/ArchR-addDoubletScores-3edaac4f162b22-Date-2022-06-24_Time-21-06-01.log
 [[1]]
 List of length 2
-Warning message:
-`guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> = "none")` instead. 
 names(2): doubletScore doubletEnrich
 
+Warning message:
+`guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> = "none")` instead. 
